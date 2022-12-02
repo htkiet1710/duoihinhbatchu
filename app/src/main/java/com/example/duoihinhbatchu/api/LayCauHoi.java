@@ -25,7 +25,7 @@ public class LayCauHoi extends AsyncTask<Void, Void, Void> {
     protected Void doInBackground(Void... voids) {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
-                .url("http://10.0.37.103/duoihinhbatchu/layCauHoi.php")
+                .url("https://raw.githubusercontent.com/htkiet1710/duoihinhbatchu/master/app/src/main/java/com/example/duoihinhbatchu/api/data.json")
                 .build();
         Response response = null;
         try {
