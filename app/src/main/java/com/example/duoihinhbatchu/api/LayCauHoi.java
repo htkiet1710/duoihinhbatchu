@@ -19,13 +19,11 @@ public class LayCauHoi extends AsyncTask<Void, Void, Void> {
 
     String data;
 
-
-
     @Override
     protected Void doInBackground(Void... voids) {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
-                .url("http://10.0.37.103/duoihinhbatchu/layCauHoi.php")
+                .url("https://api.npoint.io/14c32d7b72f769b41a5d")
                 .build();
         Response response = null;
         try {

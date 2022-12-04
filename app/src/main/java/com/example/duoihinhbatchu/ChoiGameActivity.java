@@ -65,7 +65,7 @@ public class ChoiGameActivity extends AppCompatActivity {
         bamData();
         hienThiCauTraLoi();
         hienThiDapAn();
-        Glide.with(ChoiGameActivity.this)
+        Glide.with(this)
                 .load(cauDo.anh)
                 .into(imgAnhCauDo);
         models.layThongTin();
@@ -83,19 +83,20 @@ public class ChoiGameActivity extends AppCompatActivity {
         gdvDapAn.setNumColumns(arrDapAn.size()/2);
         gdvDapAn.setAdapter(new DapanAdapter(this,0,arrDapAn));
     }
+
     private void setOnClick(){
         gdvDapAn.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String s = (String) adapterView.getItemAtPosition(i);
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String s = (String) parent.getItemAtPosition(position);
                 if(s.length()!=0 && index<arrCauTraLoi.size()){
-                    for (int b=0;b<arrCauTraLoi.size();b++){
-                        if (arrCauTraLoi.get(b).length()==0 ){
-                            index=b;
+                    for (int i=0;i<arrCauTraLoi.size();i++){
+                        if (arrCauTraLoi.get(i).length()==0 ){
+                            index = i;
                             break;
                         }
                     }
-                    arrDapAn.set(i,"");
+                    arrDapAn.set(position,"");
                     arrCauTraLoi.set(index,s);
                     index++;
                     hienThiCauTraLoi();
@@ -106,14 +107,14 @@ public class ChoiGameActivity extends AppCompatActivity {
         });
         gdvCauTraLoi.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String s = (String) adapterView.getItemAtPosition(i);
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String s = (String) parent.getItemAtPosition(position);
                 if(s.length()!=0) {
-                    index = i;
-                    arrCauTraLoi.set(i, "");
-                    for (int a = 0; a < arrDapAn.size(); a++) {
-                        if (arrDapAn.get(a).length() == 0) {
-                            arrDapAn.set(a, s);
+                    index = position;
+                    arrCauTraLoi.set(position, "");
+                    for (int i = 0; i < arrDapAn.size(); i++) {
+                        if (arrDapAn.get(i).length() == 0) {
+                            arrDapAn.set(i, s);
                             break;
                         }
                     }
